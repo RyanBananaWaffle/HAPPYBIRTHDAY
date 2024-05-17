@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heartbeat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background">
+        <div class="message" id="initial-question">
+            <p class="question">
+                Hi Antonette, there's something special I want to share with you. Do you want to know the message? (yes/no)
+            </p>
+            <input type="text" id="first-response" placeholder="Type 'yes' or 'no'">
+            <button class="next-btn" onclick="checkInitialResponse()">Submit</button>
+        </div>
+
+        <div class="message hidden" id="second-question">
+            <p class="question">
+                Once you say 'yes,' there's no going back, Antonette! Are you sure you want to proceed? (yes/no)
+            </p>
+            <input type="text" id="second-response" placeholder="Type 'yes' or 'no'">
+            <button class="next-btn" onclick="checkSecondResponse()">Submit</button>
+        </div>
+
+        <div class="message hidden" id="happy-birthday">
+            <p id="birthday-message" class="question stroke"></p>
+            <button class="next-btn" id="next-btn" style="display: none;" onclick="showConfession()">Next</button>
+        </div>
+
+        <div class="message hidden" id="confession-message">
+            <p class="question stroke"> can I ask you something?</p>
+            <button class="next-btn" onclick="askLike()">Next</button>
+        </div>
+
+        <div class="message hidden" id="like-question">
+            <p class="question stroke">Maganda ba? AHAHAHAHAHA. Ito lang kaya ng best ko ihhh. Balak ko pa sanang gawing ano, like with 3D kineme. Dbnadbdba, maganda ba?</p>
+            <button class="next-btn" id="yes-btn" onclick="showLikeResponse('yes')">Yes</button>
+            <button class="next-btn" id="no-btn" onclick="teleportNo()">No</button>
+        </div>
+
+        <div class="message hidden" id="like-response">
+            <p class="question stroke">Heabhshbdhbwa, sana na-appreciate mo talaga, huhuhuh. Ilang linggo ko na 'to ginagawa eh HAHAHH. Ano'ng comment mo about sa ginawa ko? AHAHAH, ichat mo ah..</p>
+        </div>
+    </div>
+
+    <div id="heart-container"></div>
+
+    <script src="script.js"></script>
+
+    <script>
+        function playAudio() {
+            var audio = new Audio('Ikaw Pa Rin Ang Pipiliin Ko - Cup of Joe (Lyrics).mp3');
+            audio.play();
+            showBirthdayMessage(); // Display the happy birthday message after playing the audio
+        }
+
+        function checkSecondResponse() {
+            var response = document.getElementById("second-response").value.toLowerCase();
+            if (response === "yes") {
+                document.getElementById("second-question").classList.add("hidden");
+                document.getElementById("happy-birthday").classList.remove("hidden");
+                playAudio(); // Play audio when 'yes' is clicked
+            } else if (response === "no") {
+                alert("Whoops! Looks like you typed 'No.' Let's try 'Yes' instead!");
+            } else {
+                alert("Please type 'yes' or 'no'");
+            }
+        }
+    </script>
+</body>
+</html>

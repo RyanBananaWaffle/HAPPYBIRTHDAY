@@ -1,0 +1,72 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('The end.png') center/cover no-repeat, linear-gradient(120deg, #ec4ba9 0%, rgb(253, 207, 120) 100%);
+    font-family: "Protest Riot", sans-serif;
+    background-size: cover; /* Set background size to cover */
+}
+
+.message {
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    color: #fff;
+}
+
+.hidden {
+    display: none;
+}
+
+.next-btn {
+    display: block;
+    margin-top: 20px;
+    background-color: #ff0080;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.next-btn:hover {
+    background-color: #ff1493;
+}
+
+#no-btn {
+    background-color: red;
+}
+
+#yes-btn {
+    background-color: green;
+}
+
+.question {
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
+    2px 2px 0 #000;
+    color: white;
+    font-weight: bold;
+}
+
+.stroke {
+    -webkit-text-stroke: 0.5px black; /* Thinner stroke */
+}
+
+#birthday-message span {
+    opacity: 0; /* Initially hide all spans */
+}
